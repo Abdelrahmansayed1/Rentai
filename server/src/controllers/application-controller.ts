@@ -176,11 +176,69 @@ export const updateApplicationStatus = async (
   try {
     const { id } = req.params;
     const { status } = req.body;
-    const application = await prisma.application.update({
+    const application = await prisma.application.findUnique({
       where: { id: Number(id) },
-      data: { status: status as ApplicationStatus },
+      include: {
+        property: true,
+        tenant: true,
+      },
     });
-    res.status(200).json(application);
+    if (!application) {
+      res.status(404).json({ message: "Application not found" });
+      return;
+    }
+
+    if (status === "Approved") {
+      const lease = await prisma.lease.create({
+        data: {
+          startDate: new Date(),
+          endDate: new Date(new Date().getFullYear() + 1),
+          rent: application.property.pricePerMonth,
+          deposit: application.property.securityDeposit,
+          propertyId: application.propertyId,
+          tenantCognitoId: application.tenantCognitoId,
+        },
+      });
+
+      await prisma.property.update({
+        where: { id: application.propertyId },
+        data: {
+          tenants: {
+            connect: { cognitoId: application.tenantCognitoId },
+          },
+        },
+      });
+
+      await prisma.application.update({
+        where: { id: Number(id) },
+        data: {
+          status: status as ApplicationStatus,
+          leaseId: lease.id,
+        },
+        include: {
+          property: true,
+          tenant: true,
+          lease: true,
+        },
+      });
+    } else {
+      await prisma.application.update({
+        where: { id: Number(id) },
+        data: {
+          status: status as ApplicationStatus,
+        },
+      });
+    }
+
+    const updatedApplication = await prisma.application.findUnique({
+      where: { id: Number(id) },
+      include: {
+        property: true,
+        tenant: true,
+        lease: true,
+      },
+    });
+    res.status(200).json(updatedApplication);
   } catch (error) {
     res.status(500).json({ message: "Error updating application status" });
   }
