@@ -7,6 +7,8 @@ import morgan from "morgan";
 import { authMiddleware } from "./middleware/auth-middleware.js";
 import tenantRoutes from "./routes/tenant-routes.js";
 import managerRoutes from "./routes/manager-routes.js";
+import propertyRoutes from "./routes/property-routes.js";
+import leaseRoutes from "./routes/lease-routes.js";
 /*Route imports */
 
 /*Config*/
@@ -21,12 +23,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 /*Routes*/
-app.get("/", (req: any, res: any) => {
-  res.send("Hello World");
-});
-
+app.use("/properties", propertyRoutes);
 app.use("/tenants", authMiddleware(["tenant"]), tenantRoutes);
 app.use("/managers", authMiddleware(["manager"]), managerRoutes);
+app.use("/leases", authMiddleware(["manager", "tenant"]), leaseRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
