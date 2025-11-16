@@ -10,6 +10,10 @@ import managerRoutes from "./routes/manager-routes.js";
 import propertyRoutes from "./routes/property-routes.js";
 import leaseRoutes from "./routes/lease-routes.js";
 import applicationRoutes from "./routes/application-routes.js";
+import {
+  getManager,
+  getManagerProperties,
+} from "./controllers/manager-controller.js";
 /*Route imports */
 
 /*Config*/
@@ -26,6 +30,10 @@ app.use(cors());
 /*Routes*/
 app.use("/properties", propertyRoutes);
 app.use("/tenants", authMiddleware(["tenant"]), tenantRoutes);
+// Public GET routes for viewing manager profiles (e.g., on property listings)
+app.get("/managers/:cognitoId", getManager);
+app.get("/managers/:cognitoId/properties", getManagerProperties);
+// Protected routes for manager operations (PUT, POST)
 app.use("/managers", authMiddleware(["manager"]), managerRoutes);
 app.use("/leases", authMiddleware(["manager", "tenant"]), leaseRoutes);
 app.use(

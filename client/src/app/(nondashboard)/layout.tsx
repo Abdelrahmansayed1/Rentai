@@ -5,8 +5,7 @@ import { NAVBAR_HEIGHT } from "@/lib/constants";
 import Navbar from "@/components/navbar";
 import { useGetAuthUserQuery } from "@/state/api";
 const Layout = ({ children }: { children: React.ReactNode }) => {
-  const { data: authUser } = useGetAuthUserQuery();
-  console.log(authUser);
+  const { data: authUser, isLoading, error } = useGetAuthUserQuery();
   return (
     <div className="h-full w-full">
       <Navbar />

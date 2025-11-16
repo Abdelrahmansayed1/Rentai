@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { Amplify } from "aws-amplify";
 import {
   Authenticator,
   Heading,
@@ -14,20 +13,7 @@ import {
 import "@aws-amplify/ui-react/styles.css";
 import { useRouter, usePathname } from "next/navigation";
 
-// Move Amplify configuration inside a useEffect to avoid SSR issues
-const configureAmplify = () => {
-  if (typeof window !== "undefined") {
-    Amplify.configure({
-      Auth: {
-        Cognito: {
-          userPoolId: process.env.NEXT_PUBLIC_AWS_COGNITO_USER_POOL_ID || "",
-          userPoolClientId:
-            process.env.NEXT_PUBLIC_AWS_COGNITO_USER_POOL_CLIENT_ID || "",
-        },
-      },
-    });
-  }
-};
+// Amplify is now configured in providers.tsx
 
 const components = {
   Header() {
@@ -146,17 +132,12 @@ const Auth = ({ children }: { children: React.ReactNode }) => {
   const isDashboardPage =
     pathname.startsWith("/manager") || pathname.startsWith("/tenants");
 
-  // Configure Amplify on client side
-  useEffect(() => {
-    configureAmplify();
-  }, []);
-
   // Redirect authenticated users away from auth pages
   useEffect(() => {
     if (user && isAuthPage) {
       router.push("/");
     }
-  }, [user, isAuthPage, router]);
+  }, [user, isAuthPage, router, pathname]);
 
   // Allow access to public pages without authentication
   if (!isAuthPage && !isDashboardPage) {

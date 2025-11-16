@@ -244,3 +244,14 @@ body,
 [data-close-button="true"] {
   @apply bg-background border-border text-foreground hover:bg-muted;
 }
+
+/* Equal Width Filter Components */
+.filter-select-equal-width {
+  min-width: 7rem; /* 112px - ensures minimum readable width */
+  width: 7rem;
+  flex: 1;
+}
+
+.filter-select-equal-width .w-28 {
+  width: 100% !important;
+}

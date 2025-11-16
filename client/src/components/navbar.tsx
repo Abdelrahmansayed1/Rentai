@@ -22,7 +22,7 @@ import {
 import { SidebarTrigger } from "./ui/sidebar";
 
 const NavBar = () => {
-  const { data: authUser, isLoading } = useGetAuthUserQuery();
+  const { data: authUser, isLoading, error } = useGetAuthUserQuery();
   const router = useRouter();
   const pathname = usePathname();
   const isDashboardPath =
@@ -35,7 +35,7 @@ const NavBar = () => {
 
   return (
     <div
-      className="fixed top-0 left-0 w-full z-50 shadow-xl"
+      className="fixed top-0 left-0 w-full z-50"
       style={{
         height: NAVBAR_HEIGHT,
       }}

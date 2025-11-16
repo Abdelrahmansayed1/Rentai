@@ -7,11 +7,18 @@
     "securityDeposit": 1500.0,
     "applicationFee": 50.0,
     "photoUrls": [
-      "https://example.com/apartment1_1.jpg",
-      "https://example.com/apartment1_2.jpg"
+      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1502672260066-6bc35f0a1e1e?w=800&h=600&fit=crop"
     ],
-    "amenities": ["AirConditioning", "WasherDryer", "Parking"],
-    "highlights": ["HighSpeedInternetAccess", "CloseToTransit"],
+    "amenities": [
+      "AirConditioning",
+      "WasherDryer",
+      "Parking"
+    ],
+    "highlights": [
+      "HighSpeedInternetAccess",
+      "CloseToTransit"
+    ],
     "isPetsAllowed": true,
     "isParkingIncluded": false,
     "beds": 2,
@@ -32,11 +39,19 @@
     "securityDeposit": 2000.0,
     "applicationFee": 75.0,
     "photoUrls": [
-      "https://example.com/beachhouse1.jpg",
-      "https://example.com/beachhouse2.jpg"
+      "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=600&fit=crop"
     ],
-    "amenities": ["AirConditioning", "WasherDryer", "Parking", "Pool"],
-    "highlights": ["GreatView", "CloseToTransit"],
+    "amenities": [
+      "AirConditioning",
+      "WasherDryer",
+      "Parking",
+      "Pool"
+    ],
+    "highlights": [
+      "GreatView",
+      "CloseToTransit"
+    ],
     "isPetsAllowed": true,
     "isParkingIncluded": true,
     "beds": 3,
@@ -57,11 +72,18 @@
     "securityDeposit": 2200.0,
     "applicationFee": 60.0,
     "photoUrls": [
-      "https://example.com/cityloft1.jpg",
-      "https://example.com/cityloft2.jpg"
+      "https://images.unsplash.com/photo-1502672023488-70e25813eb80?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop"
     ],
-    "amenities": ["AirConditioning", "WasherDryer", "Gym"],
-    "highlights": ["HighSpeedInternetAccess", "CloseToTransit"],
+    "amenities": [
+      "AirConditioning",
+      "WasherDryer",
+      "Gym"
+    ],
+    "highlights": [
+      "HighSpeedInternetAccess",
+      "CloseToTransit"
+    ],
     "isPetsAllowed": true,
     "isParkingIncluded": false,
     "beds": 1,
@@ -82,11 +104,18 @@
     "securityDeposit": 2500.0,
     "applicationFee": 80.0,
     "photoUrls": [
-      "https://example.com/familyhome1.jpg",
-      "https://example.com/familyhome2.jpg"
+      "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop"
     ],
-    "amenities": ["AirConditioning", "WasherDryer", "Parking", "Dishwasher"],
-    "highlights": ["QuietNeighborhood"],
+    "amenities": [
+      "AirConditioning",
+      "WasherDryer",
+      "Parking",
+      "Dishwasher"
+    ],
+    "highlights": [
+      "QuietNeighborhood"
+    ],
     "isPetsAllowed": true,
     "isParkingIncluded": false,
     "beds": 4,
@@ -107,11 +136,18 @@
     "securityDeposit": 5000.0,
     "applicationFee": 100.0,
     "photoUrls": [
-      "https://example.com/penthouse1.jpg",
-      "https://example.com/penthouse2.jpg"
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=800&h=600&fit=crop"
     ],
-    "amenities": ["AirConditioning", "WasherDryer", "Gym", "Pool"],
-    "highlights": ["GreatView"],
+    "amenities": [
+      "AirConditioning",
+      "WasherDryer",
+      "Gym",
+      "Pool"
+    ],
+    "highlights": [
+      "GreatView"
+    ],
     "isPetsAllowed": true,
     "isParkingIncluded": false,
     "beds": 3,
@@ -132,11 +168,16 @@
     "securityDeposit": 1200.0,
     "applicationFee": 40.0,
     "photoUrls": [
-      "https://example.com/studio1.jpg",
-      "https://example.com/studio2.jpg"
+      "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop"
     ],
-    "amenities": ["AirConditioning", "HighSpeedInternet"],
-    "highlights": ["CloseToTransit"],
+    "amenities": [
+      "AirConditioning",
+      "HighSpeedInternet"
+    ],
+    "highlights": [
+      "CloseToTransit"
+    ],
     "isPetsAllowed": true,
     "isParkingIncluded": false,
     "beds": 0,
@@ -157,11 +198,17 @@
     "securityDeposit": 3000.0,
     "applicationFee": 70.0,
     "photoUrls": [
-      "https://example.com/brownstone1.jpg",
-      "https://example.com/brownstone2.jpg"
+      "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop"
     ],
-    "amenities": ["AirConditioning", "WasherDryer", "HighSpeedInternet"],
-    "highlights": ["RecentlyRenovated"],
+    "amenities": [
+      "AirConditioning",
+      "WasherDryer",
+      "HighSpeedInternet"
+    ],
+    "highlights": [
+      "RecentlyRenovated"
+    ],
     "isPetsAllowed": true,
     "isParkingIncluded": false,
     "beds": 3,
@@ -182,11 +229,16 @@
     "securityDeposit": 1000.0,
     "applicationFee": 30.0,
     "photoUrls": [
-      "https://example.com/micro1.jpg",
-      "https://example.com/micro2.jpg"
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1494526585095-c41746248156?w=800&h=600&fit=crop"
     ],
-    "amenities": ["AirConditioning", "HighSpeedInternet"],
-    "highlights": ["CloseToTransit"],
+    "amenities": [
+      "AirConditioning",
+      "HighSpeedInternet"
+    ],
+    "highlights": [
+      "CloseToTransit"
+    ],
     "isPetsAllowed": true,
     "isParkingIncluded": false,
     "beds": 0,
@@ -207,11 +259,17 @@
     "securityDeposit": 1800.0,
     "applicationFee": 60.0,
     "photoUrls": [
-      "https://example.com/cabin1.jpg",
-      "https://example.com/cabin2.jpg"
+      "https://images.unsplash.com/photo-1587061949409-02df41d5e562?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1542718610-a1d656d1884c?w=800&h=600&fit=crop"
     ],
-    "amenities": ["WasherDryer", "AirConditioning"],
-    "highlights": ["GreatView", "QuietNeighborhood"],
+    "amenities": [
+      "WasherDryer",
+      "AirConditioning"
+    ],
+    "highlights": [
+      "GreatView",
+      "QuietNeighborhood"
+    ],
     "isPetsAllowed": true,
     "isParkingIncluded": false,
     "beds": 2,
@@ -232,11 +290,17 @@
     "securityDeposit": 900.0,
     "applicationFee": 35.0,
     "photoUrls": [
-      "https://example.com/tinyhouse1.jpg",
-      "https://example.com/tinyhouse2.jpg"
+      "https://images.unsplash.com/photo-1586105449897-20b5efeb3233?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=800&h=600&fit=crop"
     ],
-    "amenities": ["WasherDryer", "AirConditioning", "HighSpeedInternet"],
-    "highlights": ["SmokeFree"],
+    "amenities": [
+      "WasherDryer",
+      "AirConditioning",
+      "HighSpeedInternet"
+    ],
+    "highlights": [
+      "SmokeFree"
+    ],
     "isPetsAllowed": true,
     "isParkingIncluded": false,
     "beds": 1,

@@ -1,14 +1,16 @@
 import type { Request, Response } from "express";
-import { PrismaClient } from "@prisma/client";
 import { wktToGeoJSON } from "@terraformer/wkt";
-
-const prisma = new PrismaClient();
+import { prisma } from "../lib/prisma.js";
 
 export const getManager = async (
   req: Request,
   res: Response
 ): Promise<void> => {
   const { cognitoId } = req.params;
+  if (!cognitoId) {
+    res.status(400).json({ message: "cognitoId is required" });
+    return;
+  }
   try {
     const manager = await prisma.manager.findUnique({
       where: { cognitoId },
@@ -19,7 +21,10 @@ export const getManager = async (
       res.status(404).json({ message: "Manager not found" });
     }
   } catch (error) {
-    res.status(500).json({ message: "Error getting manager" });
+    res.status(500).json({
+      message: "Error getting manager",
+      error: process.env.NODE_ENV === "development" ? String(error) : undefined,
+    });
   }
 };
 
@@ -34,7 +39,10 @@ export const createManager = async (
     });
     res.status(201).json(manager);
   } catch (error) {
-    res.status(500).json({ message: "Error creating manager" });
+    res.status(500).json({
+      message: "Error creating manager",
+      error: process.env.NODE_ENV === "development" ? String(error) : undefined,
+    });
   }
 };
 
@@ -43,6 +51,10 @@ export const updateManager = async (
   res: Response
 ): Promise<void> => {
   const { cognitoId } = req.params;
+  if (!cognitoId) {
+    res.status(400).json({ message: "cognitoId is required" });
+    return;
+  }
   const { name, email, phoneNumber } = req.body;
   try {
     const manager = await prisma.manager.update({
@@ -51,7 +63,10 @@ export const updateManager = async (
     });
     res.status(200).json(manager);
   } catch (error) {
-    res.status(500).json({ message: "Error updating manager" });
+    res.status(500).json({
+      message: "Error updating manager",
+      error: process.env.NODE_ENV === "development" ? String(error) : undefined,
+    });
   }
 };
 
@@ -71,7 +86,7 @@ export const getManagerProperties = async (
     const propertiesWithFormattedLocation = await Promise.all(
       properties.map(async (property) => {
         const coordinates: { coordinates: string }[] =
-          await prisma.$queryRaw`SELECT ST_AsText(coordinates) AS coordinates FROM Location WHERE id = ${property.locationId}`;
+          await prisma.$queryRaw`SELECT ST_AsText(coordinates) AS coordinates FROM "Location" WHERE id = ${property.locationId}`;
 
         const geoJson = wktToGeoJSON(coordinates[0]?.coordinates || "");
         const longitude = geoJson.bbox?.[0];
@@ -93,6 +108,9 @@ export const getManagerProperties = async (
 
     res.status(200).json(propertiesWithFormattedLocation);
   } catch (error) {
-    res.status(500).json({ message: "Error getting manager properties" });
+    res.status(500).json({
+      message: "Error getting manager properties",
+      error: process.env.NODE_ENV === "development" ? String(error) : undefined,
+    });
   }
 };
